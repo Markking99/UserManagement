@@ -5,6 +5,7 @@ import { LocalStorageService } from '../local-storage/local-storage-service';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { tap } from 'rxjs';
 import { Token } from '../../interfaces/token.interface';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AuthServiceService {
 
   private readonly userUrl: string = "https://reqres.in";
 
-  constructor(private readonly localStorageService: LocalStorageService, private readonly http: HttpClient) { }
+  constructor(private readonly localStorageService: LocalStorageService, private readonly http: HttpClient, private router: Router) { }
 
 
   private getAccessTokenFromStorage(): string | null {
@@ -32,7 +33,9 @@ export class AuthServiceService {
     let headers = {};
     this.http
       .post<Token>(`${this.userUrl}/api/login`, body, { headers })
-      .subscribe((token)=> this.storeToken(token), (error) => console.error(error))
+      .subscribe((token)=> {this.storeToken(token);
+        this.router.navigate(["/"])
+      }, (error) => console.error(error))
   }
 
   register(username: string, password: string): void {
@@ -47,6 +50,7 @@ export class AuthServiceService {
     this.accessTokenSource$.next(null);
     this.localStorageService.getLocalStorage().clear();
     sessionStorage.clear();
+    this.router.navigate(["/login"])
   }
 
   storeToken(token: Token): void {
