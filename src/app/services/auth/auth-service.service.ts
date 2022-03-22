@@ -35,6 +35,14 @@ export class AuthServiceService {
       .subscribe((token)=> this.storeToken(token), (error) => console.error(error))
   }
 
+  register(username: string, password: string): void {
+    const body = { username, password };
+    let headers = {};
+    this.http
+      .post<Token>(`${this.userUrl}/api/register`, body, { headers })
+      .subscribe((token)=> this.storeToken(token), (error) => console.error(error))
+  }
+
   logout(): void {
     this.accessTokenSource$.next(null);
     this.localStorageService.getLocalStorage().clear();
