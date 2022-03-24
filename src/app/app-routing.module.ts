@@ -9,6 +9,7 @@ const routes: Routes = [
     path: '',
     canActivate: [AuthGuardService],
     component: HomeComponent,
+    loadChildren: () =>  import('./home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'login',

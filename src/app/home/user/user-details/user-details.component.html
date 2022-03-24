@@ -1,0 +1,19 @@
+<ng-container *ngIf="user">
+    <div class="row">
+        <div class="container mt-4 mb-4 p-3 d-flex col-5">
+        <div class="card p-4">
+            <div class=" image d-flex flex-column justify-content-center align-items-center"> <button
+                    class="btn btn-secondary"> <img [src]="user.data.avatar" height="100" width="100" /></button> <span
+                    class="name mt-3">{{ user.data.first_name + " " + user.data.last_name }}</span> <span class="idd">{{
+                    user.data.email }}</span>
+                <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span
+                        class="idd1">Oxc4c16a645_b21a</span> <span><i class="fa fa-copy"></i></span> </div>
+                <div class=" d-flex mt-2"> <button class="btn1 btn-dark" (click)="editProfile()">Edit Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4 mb-4 p-3 d-flex col-5">
+        <router-outlet></router-outlet>
+    </div></div>
+</ng-container>
