@@ -1,1 +1,23 @@
-<p>edit-user works!</p>
+<div class="container" [formGroup]="form">
+    <div class="row d-flex">
+        <div class="col-md-6">
+            <div class="card" id="form1">
+                <div class="form-data" v-if="!submitted">
+                    <div class="forms-inputs mb-4"> <span>Email</span> <input autocomplete="off" type="text"  formControlName="email">
+                        <div class="invalid-feedback">A valid email is required!</div>
+                    </div>
+                    <div class="forms-inputs mb-4"> <span>First Name</span> <input autocomplete="off" type="text" formControlName="first_name">
+                        <div class="invalid-feedback">Password must be 8 character!</div>
+                    </div>
+                    <div class="forms-inputs mb-4"> <span>Last Name</span> <input autocomplete="off" type="text"  formControlName="last_name">
+                        <div class="invalid-feedback">A valid email is required!</div>
+                    </div>
+                    <div class="forms-inputs mb-4"> <span>Avatar</span> <input autocomplete="off" type="text"  formControlName="avatar">
+                        <div class="invalid-feedback">A valid email is required!</div>
+                    </div>
+                    <div class="mb-3"> <button (click)="onSubmit()" class="btn btn-dark w-100">Update</button> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
