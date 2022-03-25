@@ -1,8 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
-import { UserDetails } from 'src/app/interfaces/user-details.interface';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
