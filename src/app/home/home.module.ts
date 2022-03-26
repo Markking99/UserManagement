@@ -4,7 +4,7 @@ import { RouterModule } from "@angular/router";
 import { HeaderComponent } from "./header/header.component";
 import { HomeComponent } from "./home.component";
 import { HOME_ROUTES } from "./home.routes";
-import { UserModule } from "./users/user/user.module";
+import { UserModule } from "./users/user.module";
 
 @NgModule({
     imports: [RouterModule.forChild(HOME_ROUTES), UserModule, HttpClientModule],

@@ -14,7 +14,7 @@ export class UserDetailsComponent implements OnInit {
 
   constructor(private readonly userService: UserService, private readonly router: Router) { }
 
-  ngOnInit(): void {this.userService.getUser(4).subscribe((res: UserDetails) => this.user = res);
+  ngOnInit(): void {this.userService.getUser(4).subscribe((res: any) => this.user = res);
   }
 
   editProfile(): void{
