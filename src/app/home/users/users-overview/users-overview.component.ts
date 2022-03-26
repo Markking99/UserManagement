@@ -26,18 +26,18 @@ export class UsersOverviewComponent implements AfterViewInit, OnInit {
   ngOnInit(): void {
     this.userService.getUsers().subscribe((users: any) => {
       this.users = users['data']
-      console.log(this.users)
+    this.dataSource = new MatTableDataSource<User>(this.users);
+
+    this.dataSource.paginator = this.paginator;
     });
   }
 
   ngAfterViewInit() {
-    this.dataSource = new MatTableDataSource<User>(this.users);
-    this.dataSource.paginator = this.paginator;
   }
 
   updateUser(row: User){
+    this.dialog.closeAll()
     const dialogRef = this.dialog.open(UserDialogComponent, {
-      width: '250px',
       data: row,
     });
   }

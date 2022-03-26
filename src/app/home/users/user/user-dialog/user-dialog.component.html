@@ -1,16 +1,17 @@
 <h1 mat-dialog-title>Hi {{data.first_name}}</h1>
-<div mat-dialog-content>
+<div mat-dialog-content [formGroup]="form">
   <p>Update details</p>
-  <mat-form-field appearance="fill">
-    <mat-label>Name</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Job</mat-label>
-    <input matInput>
-  </mat-form-field>
+  <div class="card" id="form1">
+    <div class="form-data">
+        <div class="forms-inputs mb-4"> <span>Name</span> <input autocomplete="off" type="text"  formControlName="last_name">
+        </div>
+        <div class="forms-inputs mb-4"> <span>Job</span> <input autocomplete="off" type="text" formControlName="job">
+        </div>
+    </div>
+</div>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  <button class="btn btn-dark" mat-button (click)="onNoClick()">Cancel</button>
+  <div class="divider"></div>
+  <button class="btn btn-dark" mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
 </div>

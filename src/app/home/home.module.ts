@@ -7,7 +7,7 @@ import { HOME_ROUTES } from "./home.routes";
 import { UserModule } from "./users/user.module";
 
 @NgModule({
-    imports: [RouterModule.forChild(HOME_ROUTES), UserModule, HttpClientModule],
+    imports: [RouterModule.forChild(HOME_ROUTES), UserModule],
     declarations: [HomeComponent, HeaderComponent]
 })
 export class HomeModule{}
