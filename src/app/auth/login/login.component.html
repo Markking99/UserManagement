@@ -3,11 +3,18 @@
         <div class="col-md-6">
             <div class="card px-5 py-5" id="form1">
                 <div class="form-data" v-if="!submitted">
-                    <div class="forms-inputs mb-4"> <span>Email or username</span> <input autocomplete="off" type="text"  formControlName="name">
-                        <div class="invalid-feedback">A valid email is required!</div>
+
+                    <div class="forms-inputs mb-4">
+                        <mat-form-field> <span>Email or username</span> <input autocomplete="off" type="text"
+                                formControlName="name">
+                        </mat-form-field>
+                        <mat-error style="color: red;" *ngIf="this.form.get('name')?.invalid">A valid email is required!</mat-error>
                     </div>
-                    <div class="forms-inputs mb-4"> <span>Password</span> <input autocomplete="off" type="password" formControlName="password">
-                        <div class="invalid-feedback">Password must be 8 character!</div>
+                    <div class="forms-inputs mb-4">
+                        <mat-form-field><span>Password</span> <input autocomplete="off" type="password"
+                                formControlName="password">
+                        </mat-form-field>
+                        <mat-error style="color: red;" *ngIf="this.form.get('password')?.invalid">Password must be 8 character!</mat-error>
                     </div>
                     <div class="mb-3"> <button (click)="onSubmit()" class="btn btn-dark w-100">Login</button> </div>
                 </div>

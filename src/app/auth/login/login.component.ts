@@ -10,8 +10,8 @@ import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 export class LoginComponent implements OnInit {
 
   form: FormGroup = new FormGroup({
-    name: new FormControl(null, Validators.required),
-    password: new FormControl(null, Validators.required),
+    name: new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
+    password: new FormControl(null, [Validators.required,Validators.minLength(8)]),
   });
 
   constructor(private readonly authService: AuthServiceService) { }
